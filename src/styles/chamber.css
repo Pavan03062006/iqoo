@@ -1,0 +1,317 @@
+/* Transparent Chamber Interactive Simulator Styles */
+.chamber-container {
+  padding: 14px 14px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Chamber Visualizer Viewport */
+.chamber-stage {
+  width: 100%;
+  height: 280px;
+  background: radial-gradient(circle at 50% 30%, #0c182c 0%, #060b13 100%);
+  border-radius: var(--radius-lg);
+  border: 2px solid rgba(0, 240, 255, 0.25);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Acrylic Tank Column */
+.tank-column {
+  width: 180px;
+  height: 240px;
+  border-radius: 14px 14px 8px 8px;
+  border: 3px solid rgba(0, 240, 255, 0.6);
+  border-top: none;
+  position: relative;
+  background: rgba(14, 26, 44, 0.4);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.15), inset 0 0 15px rgba(0, 240, 255, 0.1);
+  overflow: hidden;
+}
+
+/* Acrylic Tank Highlights */
+.tank-column::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 6px;
+  width: 4px;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,0.05));
+  border-radius: 2px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Phone Mounted at Top Air Chamber */
+.phone-mount {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 48px;
+  background: #020408;
+  border-radius: 8px;
+  border: 1.5px solid #ffaa00;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.8), 0 0 10px rgba(255, 170, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+  z-index: 15;
+}
+
+.mount-brand {
+  font-family: var(--font-display);
+  font-size: 8px;
+  font-weight: 900;
+  color: #ffaa00;
+  letter-spacing: 1px;
+}
+
+.mount-sensors {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.sensor-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 6px var(--neon-cyan);
+}
+
+.mount-status-line {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  color: #94a3b8;
+}
+
+/* Dynamic Acoustic Ping Waves */
+.acoustic-waves {
+  position: absolute;
+  top: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.sound-arc {
+  border-radius: 50%;
+  border: 1.5px solid var(--neon-cyan);
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  opacity: 0;
+  animation: acousticEcho 1.6s infinite ease-out;
+}
+
+.sound-arc:nth-child(1) { width: 30px; height: 16px; animation-delay: 0s; }
+.sound-arc:nth-child(2) { width: 50px; height: 24px; animation-delay: 0.3s; }
+.sound-arc:nth-child(3) { width: 70px; height: 32px; animation-delay: 0.6s; }
+
+@keyframes acousticEcho {
+  0% { opacity: 0.8; transform: translateY(0) scale(0.8); }
+  100% { opacity: 0; transform: translateY(50px) scale(1.4); }
+}
+
+/* Water Column inside tank */
+.tank-water {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  background: linear-gradient(180deg, rgba(0, 240, 255, 0.75) 0%, rgba(0, 102, 255, 0.85) 60%, rgba(0, 43, 110, 0.95) 100%);
+  transition: height 0.35s ease-out;
+  z-index: 5;
+  box-shadow: inset 0 4px 10px rgba(0, 240, 255, 0.4);
+}
+
+/* Animated Water Surface Ripple */
+.water-surface {
+  position: absolute;
+  top: -6px;
+  left: -20%;
+  width: 140%;
+  height: 12px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.7) 0%, rgba(0,240,255,0.4) 60%, transparent 100%);
+  border-radius: 50%;
+  animation: waveMotion 2.5s infinite ease-in-out alternate;
+}
+
+@keyframes waveMotion {
+  0% { transform: translateX(-5px) scaleY(0.9); }
+  100% { transform: translateX(5px) scaleY(1.3); }
+}
+
+/* Rising Air Bubbles */
+.bubble {
+  position: absolute;
+  bottom: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  box-shadow: 0 0 4px #00f0ff;
+  animation: bubbleRise 2s infinite ease-in;
+}
+
+@keyframes bubbleRise {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 0.8; }
+  100% { transform: translateY(-120px); opacity: 0; }
+}
+
+/* Chamber Readout Overlays */
+.tank-overlay-labels {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: right;
+  z-index: 20;
+}
+
+.tank-badge {
+  background: rgba(5, 10, 18, 0.85);
+  border: 1px solid var(--bg-card-border);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #cbd5e1;
+}
+
+.tank-badge strong {
+  color: var(--neon-cyan);
+}
+
+/* Pump Controls Grid */
+.pump-controls {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pump-btn-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.pump-btn {
+  background: var(--bg-elevated);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius-sm);
+  color: #fff;
+  padding: 10px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  transition: var(--transition-fast);
+}
+
+.pump-btn:hover {
+  border-color: var(--neon-cyan);
+  background: var(--bg-card-hover);
+}
+
+.pump-btn.active {
+  background: rgba(0, 240, 255, 0.2);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 12px var(--neon-cyan-glow);
+}
+
+/* Slider Controls */
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.slider-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.tactical-range {
+  width: 100%;
+  accent-color: var(--neon-cyan);
+  height: 6px;
+  background: #1a2538;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Judge Presentation Scenario Cards */
+.scenarios-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.scenario-card {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-align: left;
+}
+
+.scenario-card:hover {
+  border-color: var(--neon-cyan);
+  transform: translateY(-2px);
+  background: var(--bg-card-hover);
+}
+
+.scenario-tag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 800;
+  color: var(--neon-amber);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.scenario-title {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.scenario-desc {
+  font-size: 10px;
+  color: #94a3b8;
+  line-height: 1.3;
+}

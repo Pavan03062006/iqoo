@@ -1,0 +1,50 @@
+/* HydroChamber Tactical Design Tokens */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Orbitron:wght@600;800;900&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Surface & Base Colors (OLED Optimized) */
+  --bg-core: #04070c;
+  --bg-surface: #090e17;
+  --bg-card: rgba(14, 22, 36, 0.75);
+  --bg-card-hover: rgba(20, 32, 52, 0.85);
+  --bg-card-border: rgba(0, 240, 255, 0.18);
+  --bg-glass: rgba(10, 16, 28, 0.65);
+  --bg-elevated: #111a2a;
+
+  /* Tactical Neon Accents */
+  --neon-cyan: #00f0ff;
+  --neon-cyan-glow: rgba(0, 240, 255, 0.35);
+  --neon-blue: #2563eb;
+  --neon-amber: #ffaa00;
+  --neon-amber-glow: rgba(255, 170, 0, 0.35);
+  --neon-red: #ff2a55;
+  --neon-red-glow: rgba(255, 42, 85, 0.45);
+  --neon-green: #00ff88;
+  --neon-green-glow: rgba(0, 255, 136, 0.35);
+
+  /* Rescuer Status Colors */
+  --status-stable: #00ff88;
+  --status-changing: #ffaa00;
+  --status-critical: #ff2a55;
+  --status-stabilized: #00d4ff;
+
+  /* Typography */
+  --font-display: 'Orbitron', -apple-system, sans-serif;
+  --font-body: 'Outfit', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Sizing & Layout */
+  --header-height: 56px;
+  --nav-height: 64px;
+  --max-mobile-width: 480px;
+  --safe-bottom: env(safe-area-inset-bottom, 16px);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}

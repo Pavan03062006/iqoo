@@ -1,0 +1,15 @@
+{
+  "name": "hydrochamber",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline Smartphone Environmental Sensing System for Flooded Enclosed Spaces",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  }
+}

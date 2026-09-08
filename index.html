@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>HydroChamber — Offline Smartphone Environmental Sensing System</title>
+  <meta name="description" content="Offline environmental sensing system for flooded enclosed spaces using iQOO smartphone barometer, acoustic reflection, and IMU sensor fusion." />
+  <meta name="theme-color" content="#04070c" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
+  <link rel="apple-touch-icon" href="/icons/icon.svg" />
+</head>
+<body>
+  <div id="app">
+    <div class="device-container">
+      <!-- Tactical Status Header -->
+      <header class="app-header">
+        <div class="brand-badge">
+          <span class="iqoo-logo">iQOO</span>
+          <span class="project-title">HYDROCHAMBER</span>
+        </div>
+        <div class="header-status-group">
+          <div class="offline-pill" title="100% Offline Local Processing">
+            <span class="pulse-dot"></span>
+            <span>OFFLINE ACTIVE</span>
+          </div>
+          <button class="torch-btn" id="btnTorch" title="Emergency Rescue Strobe / Torch">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Scrollable Main Viewport -->
+      <main class="app-viewport">
+        <!-- View 1: Field Rescuer Tactical HUD -->
+        <section id="view-hud" class="view-panel active"></section>
+
+        <!-- View 2: Transparent Chamber Physical Simulator -->
+        <section id="view-chamber" class="view-panel"></section>
+
+        <!-- View 3: Hardware Diagnostics Benchmark -->
+        <section id="view-diagnostics" class="view-panel"></section>
+
+        <!-- View 4: 12-Section Project Pitch & Science -->
+        <section id="view-pitch" class="view-panel"></section>
+      </main>
+
+      <!-- Tactical Bottom Navigation Dock -->
+      <nav class="app-dock">
+        <button class="dock-item active" data-view="hud" id="navHud">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>FIELD HUD</span>
+        </button>
+        <button class="dock-item" data-view="chamber" id="navChamber">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+          </svg>
+          <span>CHAMBER</span>
+        </button>
+        <button class="dock-item" data-view="diagnostics" id="navDiag">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="m4.93 4.93 4.24 4.24"></path>
+            <path d="m14.83 9.17 4.24-4.24"></path>
+            <path d="m14.83 14.83 4.24 4.24"></path>
+            <path d="m9.17 14.83-4.24 4.24"></path>
+            <circle cx="12" cy="12" r="4"></circle>
+          </svg>
+          <span>TEST BENCH</span>
+        </button>
+        <button class="dock-item" data-view="pitch" id="navPitch">
+          <svg viewBox="0 0 24 24">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+          <span>SCIENCE</span>
+        </button>
+      </nav>
+
+      <!-- Rescue Flash / Torch Screen Overlay -->
+      <div id="torchOverlay">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+        </svg>
+        <div style="font-family:var(--font-display); font-weight:800; font-size:16px;">
+          RESCUE HIGH-LUMEN STROBE
+        </div>
+        <div style="font-size:12px; opacity:0.7;">Tap anywhere to disengage</div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

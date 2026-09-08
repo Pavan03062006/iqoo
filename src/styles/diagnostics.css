@@ -1,0 +1,111 @@
+/* Hardware Diagnostic Suite ("1-Hour Sensor Prototype") */
+.diag-container {
+  padding: 14px 14px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.diag-hero-card {
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.08) 0%, rgba(14, 26, 44, 0.6) 100%);
+  border: 1px solid var(--neon-cyan);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.diag-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.diag-desc {
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+/* Sensor Health Cards */
+.sensor-check-card {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.check-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.check-name {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.check-status-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.badge-pass {
+  background: rgba(0, 255, 136, 0.15);
+  color: var(--neon-green);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.badge-fallback {
+  background: rgba(255, 170, 0, 0.15);
+  color: var(--neon-amber);
+  border: 1px solid rgba(255, 170, 0, 0.3);
+}
+
+.badge-pending {
+  background: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+}
+
+.check-stats-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #cbd5e1;
+  background: rgba(4, 7, 12, 0.5);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+}
+
+/* Signal Meter Bar */
+.signal-meter {
+  height: 8px;
+  background: #111a28;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.signal-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-green) 0%, var(--neon-cyan) 60%, var(--neon-amber) 100%);
+  width: 0%;
+  transition: width 0.15s ease-out;
+}
